@@ -6,10 +6,8 @@ import android.os.Bundle
 import android.view.View
 import android.view.Window
 import android.view.WindowManager
-import android.widget.Button
 import android.widget.Toast
 import androidx.core.util.PatternsCompat
-import com.google.android.material.textfield.TextInputLayout
 import com.somosmas.somosmas.databinding.ActivitySingUpBinding
 import java.util.regex.Pattern
 
@@ -25,18 +23,19 @@ class SingUpActivity : AppCompatActivity() {
         //PARA NO TENER LA BARRA DE NOTIFICACIONES DE TITULO
         requestWindowFeature(Window.FEATURE_NO_TITLE)
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN)
-/*
-        val txt_nomre_usuario = findViewById<TextInputLayout>(R.id.txt_name)
-        val txt_email = findViewById<TextInputLayout>(R.id.txt_email)
-        val txt_password = findViewById<TextInputLayout>(R.id.txt_password)
-        val txt_confirm_password = findViewById<TextInputLayout>(R.id.txt_confirm_password)
-        val btn_singUp = findViewById<Button>(R.id.btn_singUp)
 
-        btn_singUp.visibility = View.VISIBLE
+        binding.btnSingUp.setOnClickListener {
+            validate()
+            val password = binding.txtPassword.editText?.text.toString()
+            val confirm_password = binding.txtConfirmPassword.editText?.text.toString()
+            if(password != confirm_password){
+                binding.txtPassword.error = "Passwords are not the same"
+            } else{
+                binding.btnSingUp.isEnabled
+            }
+        }
 
-        btn_singUp.setOnClickListener {
 
-        }*/
     }
 
 
@@ -73,7 +72,22 @@ class SingUpActivity : AppCompatActivity() {
             binding.txtPassword.error = "Field can not be empty"
             false
         } else if(!passwordFormat.matcher(password).matches()){
-            binding.txtPassword.error = "The password should have one o more numbers"
+            binding.txtPassword.error = "The password should have one or more numbers"
+            false
+        } else {
+            binding.txtPassword.error = null
+            true
+        }
+    }
+
+    private fun validarConfirmPassword() : Boolean{
+        val confirm_password = binding.txtConfirmPassword.editText?.text.toString()
+        val passwordFormat = Pattern.compile("(?=.*[0-9])") //Indica que por lo menos debe haber un numero
+        return if (confirm_password.isEmpty()){
+            binding.txtPassword.error = "Field can not be empty"
+            false
+        } else if(!passwordFormat.matcher(confirm_password).matches()){
+            binding.txtPassword.error = "The password should have one or more numbers"
             false
         } else {
             binding.txtPassword.error = null
@@ -82,7 +96,7 @@ class SingUpActivity : AppCompatActivity() {
     }
 
     private fun validate(){
-        val result = arrayOf(validarName(),validarEmail(),validarPassword())
+        val result = arrayOf(validarName(),validarEmail(),validarPassword(),validarConfirmPassword())
 
         if (false in result){
             return
