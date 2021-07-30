@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="widthimp">370dp</dimen>
+    <dimen name="heightimp">80dp</dimen>
+    <dimen name="margintopimg">-55.9dp</dimen>
+    <dimen name="heightbtn">50dp</dimen>
+</resources>
