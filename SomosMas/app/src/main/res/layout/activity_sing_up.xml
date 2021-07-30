@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".sing_up"
+    tools:context=".SingUpActivity"
     android:padding="16dp">
 
     <ImageView
@@ -31,6 +31,8 @@
         android:layout_height="wrap_content"
 
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@null"
         android:background="@drawable/bordes"
         android:hint="Name"
 
@@ -56,6 +58,8 @@
         android:hint="Email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:background="@drawable/bordes"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@null"
 
         app:layout_constraintBottom_toBottomOf="@+id/txt_password"
         app:layout_constraintLeft_toLeftOf="parent"
@@ -78,6 +82,8 @@
         android:hint="Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:passwordToggleEnabled="true"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@null"
         android:background="@drawable/bordes"
 
         app:layout_constraintBottom_toTopOf="@+id/txt_email"
@@ -101,6 +107,8 @@
         android:hint="Confirm password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         app:passwordToggleEnabled="true"
+        app:errorEnabled="true"
+        app:errorIconDrawable="@null"
 
         app:layout_constraintBottom_toTopOf="@+id/btn_singUp"
         app:layout_constraintLeft_toLeftOf="parent"
