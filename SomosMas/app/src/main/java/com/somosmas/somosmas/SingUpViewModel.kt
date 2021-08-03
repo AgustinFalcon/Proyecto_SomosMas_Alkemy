@@ -9,6 +9,7 @@ import java.util.regex.Pattern
 class SingUpViewModel: ViewModel() {
     private val _viewState = MutableLiveData<SingUpViewStates>()
     val viewStates : LiveData<SingUpViewStates>get() = _viewState
+
     private var fieldsOk: Boolean = true
     val passwordFormat = Pattern.compile("(?=.*[0-9])") //Indica que por lo menos debe haber un numero
 
@@ -18,11 +19,11 @@ class SingUpViewModel: ViewModel() {
             _viewState.value = SingUpViewStates.FieldError
             fieldsOk = false
         }
-        if(email.isEmpty() || !PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()){
+        if(email.isEmpty() /*|| PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()*/){
             _viewState.value = SingUpViewStates.FieldError
             fieldsOk = false
         }
-        if(pw1.isEmpty() || !passwordFormat.matcher(pw1).matches()){
+        if(pw1.isEmpty() /*|| passwordFormat.matcher(pw1).matches()*/){
             _viewState.value = SingUpViewStates.FieldError
             fieldsOk = false
         }
@@ -34,9 +35,7 @@ class SingUpViewModel: ViewModel() {
             _viewState.value = SingUpViewStates.FieldSucces
         }
     }
-
 }
-
 
 
 sealed class SingUpViewStates{
