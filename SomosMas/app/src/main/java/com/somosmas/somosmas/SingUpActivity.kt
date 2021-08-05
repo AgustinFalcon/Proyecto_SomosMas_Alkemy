@@ -3,9 +3,13 @@ package com.somosmas.somosmas
 import android.content.Context
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
 import android.widget.Button
 import android.widget.Toast
 import androidx.core.util.PatternsCompat
+import androidx.core.view.isEmpty
+import androidx.core.widget.doOnTextChanged
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
@@ -17,103 +21,40 @@ class SingUpActivity : AppCompatActivity() {
 
     private lateinit var binding : ActivitySingUpBinding
     private lateinit var singUpViewModel : SingUpViewModel
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivitySingUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-
-        val inputName = findViewById<TextInputLayout>(R.id.Input_name)
-        val inputEmail = findViewById<TextInputLayout>(R.id.Input_email)
-        val inputPassword = findViewById<TextInputLayout>(R.id.Input_password)
-        val inputConfirmPassword = findViewById<TextInputLayout>(R.id.Input_confirm_password)
-
-
-        val password = findViewById<TextInputEditText>(R.id.txt_password)
-        val confirm_password = findViewById<TextInputEditText>(R.id.txt_confirme_password)
-        val name = findViewById<TextInputEditText>(R.id.txt_name)
-        val email = findViewById<TextInputEditText>(R.id.txt_email)
+        val name = binding.txtName.text.toString()
+        val email = binding.txtEmail.text.toString()
+        val password = binding.txtPassword.text.toString()
+        val confirm_password = binding.txtConfirmPassword.text.toString()
+        var btn_singUp = binding.btnSingUp
 
         singUpViewModel = ViewModelProvider(this).get(SingUpViewModel::class.java)
         singUpViewModel.viewStates.observe(this,::handleViewState)
 
-        binding.btnSingUp.setOnClickListener {
-            singUpViewModel.validateFields(name.text.toString(),email.text.toString(),password.text.toString(),confirm_password.text.toString())
+        btn_singUp.setOnClickListener {
+            singUpViewModel.validateFields(name, email, password, confirm_password)
         }
-
+        //btn_singUp.isEnabled = !(name.isEmpty() && email.isEmpty() && password.isEmpty() && confirm_password.isEmpty())
     }
 
 
     private fun handleViewState(viewState: SingUpViewStates){
+        var btn_singUp = binding.btnSingUp
         when(viewState){
-            is SingUpViewStates.FieldError -> toast(this,"Error!")
-            is SingUpViewStates.FieldSucces -> toast(this,"Succes!")
+            is SingUpViewStates.FieldErrorName -> binding.InputName.error = " "
+            is SingUpViewStates.FieldErrorEmail -> binding.InputEmail.error = " "
+            is SingUpViewStates.FieldErrorPassword -> binding.InputPassword.error = " "
+            is SingUpViewStates.FieldErrorConfirmPassword -> binding.InputConfirmPassword.error = "The passwords are not the same"
+            is SingUpViewStates.FieldSucces -> toast(this,"Succes")//btn_singUp.isEnabled = true
+
         }
     }
 
-/*
-    fun validar(name: String, email: String, password: String, confirm_password: String){
-        var salir = true
-        val name = name
-        val email = email
-        val password = password
-        val confirm_password = confirm_password
-        val passwordFormat = Pattern.compile("(?=.*[0-9])") //Indica que por lo menos debe haber un numero
-
-        if (name.isEmpty()){
-            binding.txtName.setError("Cannot be empty")
-            salir = false
-        }
-        if (email.isEmpty() || !PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()){
-            binding.txtEmail.setError("Cannot be empty")
-            salir = false
-        }
-        if (password.isEmpty() && !passwordFormat.matcher(password).matches()){
-            binding.txtPassword.setError("Cannot be empty")
-            salir = false
-        }
-        if (password!=confirm_password){
-            binding.txtConfirmPassword.error = "The passwords are not the same"
-            salir = false
-        }
-
-        if (salir){
-            binding.btnSingUp.setEnabled(true)
-        }
-    }*/
-
-
-/*
-    private fun validarName(name: String) : Boolean{
-        return name.isEmpty()
-    }
-
-    private fun validarEmail(email: String) : Boolean{
-        return !email.isEmpty() && PatternsCompat.EMAIL_ADDRESS.matcher(email).matches()
-    }
-
-
-    private fun validarPassword(password: String) : Boolean {
-        val passwordFormat =
-            Pattern.compile("(?=.*[0-9])") //Indica que por lo menos debe haber un numero
-        return !password.isEmpty() && passwordFormat.matcher(password).matches()
-    }
-
-    private fun validarConfirmPassword(password: String, confirm_password: String) : Boolean{
-        return password == confirm_password
-    }
-
-    private fun validate(name: String, email: String, password: String, confirm_password: String): Boolean{
-        val result = arrayOf(validarName(name), validarEmail(email), validarPassword(password), validarConfirmPassword(password,confirm_password))
-
-        return if (false in result){
-            false
-        }else{
-            toast(this,"Succes")
-            binding.btnSingUp.isEnabled
-            true
-        }
-    }*/
 
     fun Context.toast(context: Context = applicationContext, message: String, duration: Int = Toast.LENGTH_SHORT){
         Toast.makeText(context, message, duration).show()

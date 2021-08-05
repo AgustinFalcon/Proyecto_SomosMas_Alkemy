@@ -79,9 +79,7 @@
 
         android:hint="Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:passwordToggleEnabled="true"
         app:errorEnabled="true"
-        app:errorIconDrawable="@null"
 
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toTopOf="@+id/Input_email"
@@ -104,9 +102,8 @@
 
         android:hint="Confirm password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-        app:passwordToggleEnabled="true"
         app:errorEnabled="true"
-        app:errorIconDrawable="@null"
+        app:errorTextColor="@color/design_default_color_error"
 
         android:layout_marginTop="30dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_singUp"
@@ -115,7 +112,7 @@
         app:layout_constraintTop_toTopOf="@id/Input_password">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/txt_confirme_password"
+            android:id="@+id/txt_confirm_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"/>
@@ -129,7 +126,6 @@
         android:background="@color/teal_200"
         android:text="SING UP"
         android:textColor="@color/white"
-        android:enabled="true"
         app:layout_constraintBottom_toTopOf="@id/Input_confirm_password"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
