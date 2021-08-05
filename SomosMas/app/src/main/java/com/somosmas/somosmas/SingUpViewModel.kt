@@ -34,12 +34,6 @@ class SingUpViewModel: ViewModel() {
             _viewState.value = SingUpViewStates.FieldSucces
         }
     }
-
-    fun buttonOk(name: String, email: String, pw1: String, pw2: String){
-        if(!(name.isEmpty() && email.isEmpty() && pw1.isEmpty() && pw2.isEmpty())){
-            _viewState.value = SingUpViewStates.FieldSucces
-        }
-    }
 }
 
 
