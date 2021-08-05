@@ -27,19 +27,19 @@ class SingUpActivity : AppCompatActivity() {
         binding = ActivitySingUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val name = binding.txtName.text.toString()
-        val email = binding.txtEmail.text.toString()
-        val password = binding.txtPassword.text.toString()
-        val confirm_password = binding.txtConfirmPassword.text.toString()
+        val name = binding.txtName
+        val email = binding.txtEmail
+        val password = binding.txtPassword
+        val confirm_password = binding.txtConfirmPassword
         var btn_singUp = binding.btnSingUp
 
         singUpViewModel = ViewModelProvider(this).get(SingUpViewModel::class.java)
         singUpViewModel.viewStates.observe(this,::handleViewState)
 
+
         btn_singUp.setOnClickListener {
-            singUpViewModel.validateFields(name, email, password, confirm_password)
+            singUpViewModel.validateFields(name.text.toString(), email.text.toString(), password.text.toString(), confirm_password.text.toString())
         }
-        //btn_singUp.isEnabled = !(name.isEmpty() && email.isEmpty() && password.isEmpty() && confirm_password.isEmpty())
     }
 
 
@@ -50,8 +50,7 @@ class SingUpActivity : AppCompatActivity() {
             is SingUpViewStates.FieldErrorEmail -> binding.InputEmail.error = " "
             is SingUpViewStates.FieldErrorPassword -> binding.InputPassword.error = " "
             is SingUpViewStates.FieldErrorConfirmPassword -> binding.InputConfirmPassword.error = "The passwords are not the same"
-            is SingUpViewStates.FieldSucces -> toast(this,"Succes")//btn_singUp.isEnabled = true
-
+            is SingUpViewStates.FieldSucces -> toast(this,"Succes") //INTENT A HOME
         }
     }
 

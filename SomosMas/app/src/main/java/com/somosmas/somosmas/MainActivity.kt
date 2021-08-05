@@ -11,8 +11,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //val retrofitConnection = RetrofitClient().getRetrofit()
-        //setContentView(R.layout.activity_sing_up)
+        val retrofitConnection = RetrofitClient().getRetrofit()
 
         val btn_singUp = findViewById<Button>(R.id.btnSingUp)
 
