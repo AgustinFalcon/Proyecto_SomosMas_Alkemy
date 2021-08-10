@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
         val retrofitConnection = RetrofitClient().getRetrofit()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.btnSingUp.setOnClickListener {
+            val intent = Intent(this,SingUpActivity::class.java)
+            startActivity(intent)
+        }
+
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         viewModel.viewState.observe(this, ::handleViewStates)
         viewModel.viewStateBtn.observe(this, ::handleBtnStates)

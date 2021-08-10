@@ -24,13 +24,21 @@ class SingUpActivity : AppCompatActivity() {
         singUpViewModel.viewStates.observe(this, ::handleViewState)
 
 
-            binding.btnSingUp.setOnClickListener{
-                singUpViewModel.validateFields(
-                    binding.txtName.text.toString(),
-                    binding.txtEmail.text.toString(),
-                    binding.txtPassword.text.toString(),
-                    binding.txtConfirmPassword.text.toString())
-            }
+        binding.txtName.addTextChangedListener {
+            singUpViewModel.validateName(binding.txtName.text.toString())
+        }
+
+        binding.txtEmail.addTextChangedListener {
+            singUpViewModel.validateEmail(binding.txtEmail.text.toString())
+        }
+
+        binding.txtPassword.addTextChangedListener {
+            singUpViewModel.validatePassword(binding.txtPassword.text.toString())
+        }
+
+        binding.txtConfirmPassword.addTextChangedListener {
+            singUpViewModel.validateConfirmPassword(binding.txtPassword.text.toString(), binding.txtConfirmPassword.text.toString())
+        }
     }
 
 
@@ -45,7 +53,8 @@ class SingUpActivity : AppCompatActivity() {
             is SingUpViewStates.FieldErrorConfirmPassword -> binding.InputConfirmPassword.error = " "
             is SingUpViewStates.FieldErrorConfirmPasswordMessage -> binding.InputConfirmPassword.error = "Passwords are not the same"
             is SingUpViewStates.SuccesConfirmPassword -> binding.InputConfirmPassword.error = null
-            is SingUpViewStates.FieldSucces -> toast(this,"Succes") //INTENT A HOME
+            is SingUpViewStates.btnSucces -> binding.btnSingUp.setEnabled(true)
+            is SingUpViewStates.btnError -> binding.btnSingUp.setEnabled(false)
         }
     }
 
