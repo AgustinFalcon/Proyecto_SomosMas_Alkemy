@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:src="@drawable/somos_mas_logo"
+        android:src="@drawable/mas_somos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 

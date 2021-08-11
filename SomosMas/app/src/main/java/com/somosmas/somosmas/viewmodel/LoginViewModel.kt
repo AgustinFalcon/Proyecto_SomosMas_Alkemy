@@ -1,5 +1,7 @@
 package com.somosmas.somosmas.viewmodel
 
+import android.view.View
+import android.widget.Button
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -23,21 +25,22 @@ class LoginViewModel : ViewModel() {
         } else {
             if (!PatternsCompat.EMAIL_ADDRESS.matcher(input).matches()) {
                 _viewState.value = ViewStates.ErrorInvalidEmail
-                _btnState.value = ViewStates.blockedBtn
+                _btnState.value= ViewStates.blockedBtn
             } else {
                 _viewState.value = ViewStates.succesEmail
-                _btnState.value = ViewStates.succesBtn
+                _btnState.value= ViewStates.succesBtn
             }
         }
     }
 
+
     fun validatePassword(input: String) {
         if (input.isEmpty()) {
             _viewState.value = ViewStates.ErrorPassword
-            _btnState.value = ViewStates.blockedBtn
+            _btnState.value= ViewStates.blockedBtn
         } else {
             _viewState.value = ViewStates.succesPassword
-            _btnState.value = ViewStates.succesBtn
+            _btnState.value= ViewStates.succesBtn
         }
     }
 }
