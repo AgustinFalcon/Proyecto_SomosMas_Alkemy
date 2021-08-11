@@ -44,17 +44,17 @@ class SingUpActivity : AppCompatActivity() {
 
     private fun handleViewState(viewState: SingUpViewStates){
         when(viewState){
-            is SingUpViewStates.FieldErrorName -> binding.InputName.error = " "
-            is SingUpViewStates.SuccesName -> binding.InputName.error = null
-            is SingUpViewStates.FieldErrorEmail -> binding.InputEmail.error = " "
-            is SingUpViewStates.SuccesEmail -> binding.InputEmail.error = null
-            is SingUpViewStates.FieldErrorPassword -> binding.InputPassword.error = " "
-            is SingUpViewStates.SuccesPassword -> binding.InputPassword.error = null
-            is SingUpViewStates.FieldErrorConfirmPassword -> binding.InputConfirmPassword.error = " "
-            is SingUpViewStates.FieldErrorConfirmPasswordMessage -> binding.InputConfirmPassword.error = "Passwords are not the same"
-            is SingUpViewStates.SuccesConfirmPassword -> binding.InputConfirmPassword.error = null
-            is SingUpViewStates.btnSucces -> binding.btnSingUp.setEnabled(true)
-            is SingUpViewStates.btnError -> binding.btnSingUp.setEnabled(false)
+            is SingUpViewStates.FieldErrorName -> binding.inputName.error = " "
+            is SingUpViewStates.SuccesName -> binding.inputName.error = null
+            is SingUpViewStates.FieldErrorEmail -> binding.inputEmail.error = " "
+            is SingUpViewStates.SuccesEmail -> binding.inputEmail.error = null
+            is SingUpViewStates.FieldErrorPassword -> binding.inputPassword.error = " "
+            is SingUpViewStates.SuccesPassword -> binding.inputPassword.error = null
+            is SingUpViewStates.FieldErrorConfirmPassword -> binding.inputConfirmPassword.error = " "
+            is SingUpViewStates.FieldErrorConfirmPasswordMessage -> binding.inputConfirmPassword.error = "Passwords are not the same"
+            is SingUpViewStates.SuccesConfirmPassword -> binding.inputConfirmPassword.error = null
+            is SingUpViewStates.btnSucces -> binding.btnSingUp.isEnabled = true
+            is SingUpViewStates.btnError -> binding.btnSingUp.isEnabled = false
         }
     }
 
