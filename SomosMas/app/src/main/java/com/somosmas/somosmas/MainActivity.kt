@@ -17,12 +17,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
-
-        val retrofitConnection = RetrofitClient().getRetrofit()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        val retrofitConnection = RetrofitClient().getRetrofit()
+
+        //INTENT DE LOGIN A SING UP
         binding.btnSingUp.setOnClickListener {
             val intent = Intent(this,SingUpActivity::class.java)
             startActivity(intent)
@@ -38,11 +38,6 @@ class MainActivity : AppCompatActivity() {
 
         binding.inputPassword.addTextChangedListener {
             viewModel.validatePassword(binding.inputPassword.text.toString())
-        }
-        //NAVEGACIÓN DESDE LOGIN A SING UP
-        binding.btnSingUp.setOnClickListener {
-            val intent = Intent(this, SingUpActivity::class.java)
-            startActivity(intent)
         }
     }
 
