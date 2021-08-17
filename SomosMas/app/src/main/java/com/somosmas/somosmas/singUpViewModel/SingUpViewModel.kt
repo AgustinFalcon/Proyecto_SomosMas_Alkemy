@@ -1,4 +1,4 @@
-package com.somosmas.somosmas
+package com.somosmas.somosmas.singUpViewModel
 
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData

@@ -7,6 +7,8 @@ import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.somosmas.somosmas.databinding.ActivitySingUpBinding
+import com.somosmas.somosmas.singUpViewModel.*
+
 
 
 class SingUpActivity : AppCompatActivity() {
