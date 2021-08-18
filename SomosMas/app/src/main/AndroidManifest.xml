@@ -15,14 +15,15 @@
             android:name=".home.HomeActivity"
             android:label="@string/title_activity_home3"
             android:theme="@style/Theme.SomosMas.NoActionBar"></activity>
-        <activity android:name=".SingUpActivity" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".SingUpActivity"/>
+        <activity android:name=".SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"></activity>
     </application>
 
 </manifest>
