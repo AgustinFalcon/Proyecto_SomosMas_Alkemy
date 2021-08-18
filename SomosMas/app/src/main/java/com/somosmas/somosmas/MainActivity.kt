@@ -33,6 +33,11 @@ class MainActivity : AppCompatActivity() {
         binding.inputPassword.addTextChangedListener {
             viewModel.validatePassword(binding.inputPassword.text.toString())
         }
+
+        //Navegacion desde login a sing up
+        binding.btnSingUp.setOnClickListener {
+            val intent = Intent(this,SingUpActivity::class.java)
+        }
     }
 
     private fun handleViewStates(viewStates: ViewStates) {
