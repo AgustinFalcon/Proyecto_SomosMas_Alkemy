@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.slideshow
+package com.somosmas.somosmas.home.ui.contribuye
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentSlideshowBinding
+import com.somosmas.somosmas.databinding.FragmentActividadesBinding
+import com.somosmas.somosmas.databinding.FragmentContribuyeBinding
+import com.somosmas.somosmas.home.ui.actividades.ActividadesViewModel
 
+class ContribuyeFragment : Fragment() {
 
-class SlideshowFragment : Fragment() {
-
-    private lateinit var slideshowViewModel: SlideshowViewModel
-    private var _binding: FragmentSlideshowBinding? = null
+    private lateinit var contribuyeViewModel: ContribuyeViewModel
+    private var _binding: FragmentContribuyeBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +26,14 @@ class SlideshowFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        slideshowViewModel =
-            ViewModelProvider(this).get(SlideshowViewModel::class.java)
+        contribuyeViewModel =
+            ViewModelProvider(this).get(ContribuyeViewModel::class.java)
 
-        _binding = FragmentSlideshowBinding.inflate(inflater, container, false)
+        _binding = FragmentContribuyeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
-        slideshowViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.txtContribuye
+        contribuyeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
@@ -42,4 +43,7 @@ class SlideshowFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
 }

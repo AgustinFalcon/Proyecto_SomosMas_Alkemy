@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.gallery
+package com.somosmas.somosmas.home.ui.testimonios
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentGalleryBinding
+import com.somosmas.somosmas.databinding.FragmentTestimoniosBinding
 
-class GalleryFragment : Fragment() {
+class TestimoniosFragment : Fragment() {
 
-    private lateinit var galleryViewModel: GalleryViewModel
-    private var _binding: FragmentGalleryBinding? = null
+    private lateinit var testimoniosViewModel: TestimoniosViewModel
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private var _binding: FragmentTestimoniosBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,14 +22,14 @@ class GalleryFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        galleryViewModel =
-            ViewModelProvider(this).get(GalleryViewModel::class.java)
+        testimoniosViewModel =
+            ViewModelProvider(this).get(TestimoniosViewModel::class.java)
 
-        _binding = FragmentGalleryBinding.inflate(inflater, container, false)
+        _binding = FragmentTestimoniosBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
-        galleryViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.txtTestimonios
+        testimoniosViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
