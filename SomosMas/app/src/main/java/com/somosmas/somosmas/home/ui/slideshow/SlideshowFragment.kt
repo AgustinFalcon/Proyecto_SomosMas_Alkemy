@@ -8,8 +8,8 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.home.R
-import com.somosmas.somosmas.home.databinding.FragmentSlideshowBinding
+import com.somosmas.somosmas.databinding.FragmentSlideshowBinding
+
 
 class SlideshowFragment : Fragment() {
 

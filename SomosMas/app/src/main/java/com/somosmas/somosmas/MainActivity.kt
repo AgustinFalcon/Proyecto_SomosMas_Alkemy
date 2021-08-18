@@ -6,6 +6,7 @@ import android.os.Bundle
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.somosmas.somosmas.databinding.ActivityMainBinding
+import com.somosmas.somosmas.home.HomeActivity
 import com.somosmas.somosmas.viewmodel.LoginViewModel
 import com.somosmas.somosmas.viewmodel.ViewStates
 
@@ -36,7 +37,13 @@ class MainActivity : AppCompatActivity() {
 
         //Navegacion desde login a sing up
         binding.btnSingUp.setOnClickListener {
-            val intent = Intent(this,SingUpActivity::class.java)
+            val intent = Intent(this, SingUpActivity::class.java)
+            startActivity(intent)
+        }
+        //Navegacion desde login a home
+        binding.btnSingUp.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 
