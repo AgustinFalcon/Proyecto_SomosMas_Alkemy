@@ -3,10 +3,12 @@ package com.somosmas.somosmas
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.view.View
 import android.os.Handler
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.somosmas.somosmas.databinding.ActivityMainBinding
+import com.somosmas.somosmas.desingUI.CustomDialogFragment
 import com.somosmas.somosmas.desingUI.LoadingDialog
 import com.somosmas.somosmas.viewmodel.LoginViewModel
 import com.somosmas.somosmas.viewmodel.ViewStates
@@ -59,6 +61,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, SingUpActivity::class.java)
             startActivity(intent)
         }
+    }
+    fun showAlert(view: View){
+        CustomDialogFragment().show(supportFragmentManager, "Custom dialog fragment")
     }
 
     private fun handleViewStates(viewStates: ViewStates) {
