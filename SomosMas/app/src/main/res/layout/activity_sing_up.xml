@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="100dp"
         android:layout_height="50dp"
-        android:src="@drawable/somos_mas_logo"
+        android:src="@drawable/mas_somos"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -26,7 +26,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_name"
+        android:id="@+id/inputName"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
@@ -34,13 +34,14 @@
         android:hint="Name"
 
         android:layout_marginTop="16dp"
-        app:layout_constraintTop_toBottomOf="@+id/txt_email"
+        app:layout_constraintTop_toBottomOf="@+id/inputEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="@+id/txt_email">
+        app:layout_constraintBottom_toBottomOf="@+id/inputEmail">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="text"/>
@@ -48,19 +49,20 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_email"
+        android:id="@+id/inputEmail"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:hint="Email"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-        app:layout_constraintBottom_toBottomOf="@+id/txt_password"
+        app:layout_constraintBottom_toBottomOf="@+id/inputPassword"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txt_name">
+        app:layout_constraintTop_toTopOf="@id/inputName">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtEmail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textEmailAddress"/>
@@ -69,19 +71,20 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_password"
+        android:id="@+id/inputPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:hint="Password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-        app:layout_constraintBottom_toTopOf="@+id/txt_email"
+        app:layout_constraintBottom_toTopOf="@+id/inputEmail"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/txt_confirm_password">
+        app:layout_constraintTop_toBottomOf="@id/inputConfirmPassword">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword" />
@@ -89,19 +92,20 @@
 
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/txt_confirm_password"
+        android:id="@+id/inputConfirmPassword"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
 
         android:hint="Confirm password"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
 
-        app:layout_constraintBottom_toTopOf="@+id/btn_singUp"
+        app:layout_constraintBottom_toTopOf="@+id/btnSingUp"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="@id/txt_password">
+        app:layout_constraintTop_toTopOf="@id/inputPassword">
 
         <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/txtConfirmPassword"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"/>
@@ -109,13 +113,14 @@
 
 
     <Button
-        android:id="@+id/btn_singUp"
+        android:id="@+id/btnSingUp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@color/teal_200"
+        android:enabled="false"
         android:text="SING UP"
         android:textColor="@color/white"
-        app:layout_constraintBottom_toTopOf="@id/txt_confirm_password"
+        app:layout_constraintBottom_toTopOf="@id/inputConfirmPassword"
         app:layout_constraintTop_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"

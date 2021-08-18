@@ -1,3 +1,3 @@
 package com.somosmas.somosmas.model
 
-class LoginModel (var email:String, var password:String)
+class LoginModel (val email:String, val password:String)
