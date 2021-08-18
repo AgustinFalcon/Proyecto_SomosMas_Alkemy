@@ -3,10 +3,11 @@ package com.somosmas.somosmas
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.os.Handler
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.somosmas.somosmas.databinding.ActivityMainBinding
-import com.somosmas.somosmas.home.HomeActivity
+import com.somosmas.somosmas.desingUI.LoadingDialog
 import com.somosmas.somosmas.viewmodel.LoginViewModel
 import com.somosmas.somosmas.viewmodel.ViewStates
 
@@ -23,6 +24,25 @@ class MainActivity : AppCompatActivity() {
         val retrofitConnection = RetrofitClient().getRetrofit()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+
+        //INTENT DE LOGIN A SING UP
+        binding.btnSingUp.setOnClickListener {
+            val intent = Intent(this,SingUpActivity::class.java)
+            startActivity(intent)
+        }
+
+
+        val loadin=LoadingDialog(this)
+        loadin.startLoading()
+        val handler=Handler()
+        handler.postDelayed(object :Runnable{
+            override fun run() {
+                loadin.isDissmiss()
+            }
+        }, 5000)
+
+
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         viewModel.viewState.observe(this, ::handleViewStates)
         viewModel.viewStateBtn.observe(this, ::handleBtnStates)
@@ -34,8 +54,7 @@ class MainActivity : AppCompatActivity() {
         binding.inputPassword.addTextChangedListener {
             viewModel.validatePassword(binding.inputPassword.text.toString())
         }
-
-        //Navegacion desde login a sing up
+        //NAVEGACIÓN DESDE LOGIN A SING UP
         binding.btnSingUp.setOnClickListener {
             val intent = Intent(this, SingUpActivity::class.java)
             startActivity(intent)
@@ -45,6 +64,9 @@ class MainActivity : AppCompatActivity() {
             val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
+    }
+    fun showAlert(view: View){
+        CustomDialogFragment().show(supportFragmentManager, "Custom dialog fragment")
     }
 
     private fun handleViewStates(viewStates: ViewStates) {
