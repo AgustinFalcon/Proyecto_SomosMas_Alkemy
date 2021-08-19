@@ -6,20 +6,41 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/navInicio"
         android:name="com.somosmas.somosmas.home.ui.home.HomeFragment"
         android:label="@string/inicio"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/nav_nosotros"
+        android:id="@+id/navNosotros"
         android:name="com.somosmas.somosmas.home.ui.nosotros.NosotrosFragment"
         android:label="@string/nosotros"
         tools:layout="@layout/fragment_nosotros" />
 
     <fragment
-        android:id="@+id/nav_actividades"
+        android:id="@+id/navActividades"
         android:name="com.somosmas.somosmas.home.ui.actividades.ActividadesFragment"
         android:label="@string/actividades"
         tools:layout="@layout/fragment_actividades" />
+    <fragment
+        android:id="@+id/navNovedades"
+        android:name="com.somosmas.somosmas.home.ui.novedades.NovedadesFragment"
+        android:label="fragment_novedades"
+        tools:layout="@layout/fragment_novedades" />
+    <fragment
+        android:id="@+id/navTestimonios"
+        android:name="com.somosmas.somosmas.home.ui.testimonios.TestimoniosFragment"
+        android:label="fragment_testimonios"
+        tools:layout="@layout/fragment_testimonios" />
+    <fragment
+        android:id="@+id/navContacto"
+        android:name="com.somosmas.somosmas.home.ui.contacto.ContactoFragment"
+        android:label="fragment_contacto"
+        tools:layout="@layout/fragment_contacto" />
+
+    <fragment
+        android:id="@+id/navContribuye"
+        android:name="com.somosmas.somosmas.home.ui.contribuye.ContribuyeFragment"
+        android:label="fragment_contribuye"
+        tools:layout="@layout/fragment_contribuye" />
 </navigation>

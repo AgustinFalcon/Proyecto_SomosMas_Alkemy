@@ -32,7 +32,7 @@ class ContribuyeFragment : Fragment() {
         _binding = FragmentContribuyeBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.txtContribuye
+        val textView: TextView = binding.fragContribuye
         contribuyeViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

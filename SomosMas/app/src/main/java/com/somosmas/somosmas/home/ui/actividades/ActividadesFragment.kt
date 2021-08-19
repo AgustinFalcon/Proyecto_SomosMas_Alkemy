@@ -31,7 +31,7 @@ class ActividadesFragment : Fragment() {
         _binding = FragmentActividadesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textSlideshow
+        val textView: TextView = binding.fragActividades
         actividadesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

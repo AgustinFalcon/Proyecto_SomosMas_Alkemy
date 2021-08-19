@@ -30,7 +30,7 @@ class NovedadesFragment : Fragment() {
         _binding = FragmentNovedadesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.txtNovedades
+        val textView: TextView = binding.fragNovedades
         novedadesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

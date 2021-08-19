@@ -30,7 +30,7 @@ class ContactoFragment : Fragment() {
         _binding = FragmentContactoBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.txtContacto
+        val textView: TextView = binding.fragContacto
         contactoViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })

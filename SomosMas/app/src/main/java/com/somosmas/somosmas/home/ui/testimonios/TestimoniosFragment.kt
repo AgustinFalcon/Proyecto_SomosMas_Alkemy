@@ -28,7 +28,7 @@ class TestimoniosFragment : Fragment() {
         _binding = FragmentTestimoniosBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.txtTestimonios
+        val textView: TextView = binding.fragTestimonios
         testimoniosViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
