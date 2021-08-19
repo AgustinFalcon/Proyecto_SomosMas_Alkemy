@@ -25,22 +25,22 @@
     <fragment
         android:id="@+id/navNovelties"
         android:name="com.somosmas.somosmas.home.ui.novelties.NoveltiesFragment"
-        android:label="fragment_novedades"
+        android:label="@string/novedades"
         tools:layout="@layout/fragment_novelties" />
     <fragment
         android:id="@+id/navTestimony"
         android:name="com.somosmas.somosmas.home.ui.testimony.TestimonyFragment"
-        android:label="fragment_testimonios"
+        android:label="@string/testimonios"
         tools:layout="@layout/fragment_testimony" />
     <fragment
         android:id="@+id/navContact"
         android:name="com.somosmas.somosmas.home.ui.contact.ContactFragment"
-        android:label="fragment_contacto"
+        android:label="@string/contacto"
         tools:layout="@layout/fragment_contact" />
 
     <fragment
         android:id="@+id/navContributie"
         android:name="com.somosmas.somosmas.home.ui.contributie.ContributieFragment"
-        android:label="fragment_contribuye"
+        android:label="@string/contribuye"
         tools:layout="@layout/fragment_contributie" />
 </navigation>
