@@ -3,13 +3,14 @@ package com.somosmas.somosmas
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.View
 import android.os.Handler
+import android.view.View
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.somosmas.somosmas.databinding.ActivityMainBinding
 import com.somosmas.somosmas.desingUI.CustomDialogFragment
 import com.somosmas.somosmas.desingUI.LoadingDialog
+import com.somosmas.somosmas.home.HomeActivity
 import com.somosmas.somosmas.viewmodel.LoginViewModel
 import com.somosmas.somosmas.viewmodel.ViewStates
 
@@ -26,13 +27,6 @@ class MainActivity : AppCompatActivity() {
         val retrofitConnection = RetrofitClient().getRetrofit()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        //INTENT DE LOGIN A SING UP
-        binding.btnSingUp.setOnClickListener {
-            val intent = Intent(this,SingUpActivity::class.java)
-            startActivity(intent)
-        }
 
 
         val loadin=LoadingDialog(this)
@@ -56,9 +50,15 @@ class MainActivity : AppCompatActivity() {
         binding.inputPassword.addTextChangedListener {
             viewModel.validatePassword(binding.inputPassword.text.toString())
         }
-        //NAVEGACIÓN DESDE LOGIN A SING UP
+
+        //Navegacion desde login a sing up
         binding.btnSingUp.setOnClickListener {
             val intent = Intent(this, SingUpActivity::class.java)
+            startActivity(intent)
+        }
+        //Navegacion desde login a home
+        binding.btnLogin.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
     }

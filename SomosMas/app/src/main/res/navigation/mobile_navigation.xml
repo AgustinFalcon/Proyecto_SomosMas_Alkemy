@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/navHome">
+
+    <fragment
+        android:id="@+id/navHome"
+        android:name="com.somosmas.somosmas.home.ui.home.HomeFragment"
+        android:label="@string/inicio"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/navUs"
+        android:name="com.somosmas.somosmas.home.ui.us.UsFragment"
+        android:label="@string/nosotros"
+        tools:layout="@layout/fragment_us" />
+
+    <fragment
+        android:id="@+id/navActivities"
+        android:name="com.somosmas.somosmas.home.ui.activities.ActivitiesFragment"
+        android:label="@string/actividades"
+        tools:layout="@layout/fragment_activities" />
+    <fragment
+        android:id="@+id/navNovelties"
+        android:name="com.somosmas.somosmas.home.ui.novelties.NoveltiesFragment"
+        android:label="@string/novedades"
+        tools:layout="@layout/fragment_novelties" />
+    <fragment
+        android:id="@+id/navTestimony"
+        android:name="com.somosmas.somosmas.home.ui.testimony.TestimonyFragment"
+        android:label="@string/testimonios"
+        tools:layout="@layout/fragment_testimony" />
+    <fragment
+        android:id="@+id/navContact"
+        android:name="com.somosmas.somosmas.home.ui.contact.ContactFragment"
+        android:label="@string/contacto"
+        tools:layout="@layout/fragment_contact" />
+
+    <fragment
+        android:id="@+id/navContributie"
+        android:name="com.somosmas.somosmas.home.ui.contributie.ContributieFragment"
+        android:label="@string/contribuye"
+        tools:layout="@layout/fragment_contributie" />
+</navigation>

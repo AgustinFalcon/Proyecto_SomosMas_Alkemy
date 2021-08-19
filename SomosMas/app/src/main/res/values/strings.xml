@@ -7,6 +7,14 @@
     <string name="sing_up">sing up</string>
     <string name="somos_mas">SOMOS MAS</string>
     <string name="hello_word">hello word</string>
-    <string name="something_went_wrong">something went wrong</string>
-    <string name="ok">ok</string>
+    <string name="title_activity_home3">HomeActivity</string>
+
+    <string name="inicio">Inicio</string>
+    <string name="nosotros">Nosotros</string>
+    <string name="actividades">Actividades</string>
+    <string name="novedades">Novedades</string>
+    <string name="testimonios">Testimonios</string>
+    <string name="contacto">Contacto</string>
+    <string name="contribuye">Contribuye</string>
+    <string name="something_went_wrong">something_went_wrong</string>
 </resources>
