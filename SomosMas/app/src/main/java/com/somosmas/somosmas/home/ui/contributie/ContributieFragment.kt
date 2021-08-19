@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.actividades
+package com.somosmas.somosmas.home.ui.contributie
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentActividadesBinding
+import com.somosmas.somosmas.databinding.FragmentContributieBinding
 
+class ContributieFragment : Fragment() {
 
-class ActividadesFragment : Fragment() {
-
-    private lateinit var actividadesViewModel: ActividadesViewModel
-    private var _binding: FragmentActividadesBinding? = null
+    private lateinit var contributieViewModel: ContributieViewModel
+    private var _binding: FragmentContributieBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -25,14 +24,14 @@ class ActividadesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        actividadesViewModel =
-            ViewModelProvider(this).get(ActividadesViewModel::class.java)
+        contributieViewModel =
+            ViewModelProvider(this).get(ContributieViewModel::class.java)
 
-        _binding = FragmentActividadesBinding.inflate(inflater, container, false)
+        _binding = FragmentContributieBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.fragActividades
-        actividadesViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.fragContributie
+        contributieViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
@@ -42,4 +41,7 @@ class ActividadesFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
+
+
 }

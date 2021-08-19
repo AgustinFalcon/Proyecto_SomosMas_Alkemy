@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.contribuye
+package com.somosmas.somosmas.home.ui.activities
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,14 +8,12 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentActividadesBinding
-import com.somosmas.somosmas.databinding.FragmentContribuyeBinding
-import com.somosmas.somosmas.home.ui.actividades.ActividadesViewModel
+import com.somosmas.somosmas.databinding.FragmentActivitiesBinding
 
-class ContribuyeFragment : Fragment() {
+class ActivitiesFragment : Fragment() {
 
-    private lateinit var contribuyeViewModel: ContribuyeViewModel
-    private var _binding: FragmentContribuyeBinding? = null
+    private lateinit var activitiesViewModel: ActivitiesViewModel
+    private var _binding: FragmentActivitiesBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,14 +24,14 @@ class ContribuyeFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        contribuyeViewModel =
-            ViewModelProvider(this).get(ContribuyeViewModel::class.java)
+        activitiesViewModel =
+            ViewModelProvider(this).get(ActivitiesViewModel::class.java)
 
-        _binding = FragmentContribuyeBinding.inflate(inflater, container, false)
+        _binding = FragmentActivitiesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.fragContribuye
-        contribuyeViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.fragActividades
+        activitiesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
@@ -43,7 +41,4 @@ class ContribuyeFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
-
-
 }

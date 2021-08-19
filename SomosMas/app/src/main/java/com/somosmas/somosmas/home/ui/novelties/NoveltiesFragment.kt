@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.contacto
+package com.somosmas.somosmas.home.ui.novelties
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,14 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentContactoBinding
+import com.somosmas.somosmas.databinding.FragmentNoveltiesBinding
 
-class ContactoFragment : Fragment() {
 
-    private lateinit var contactoViewModel: ContactoViewModel
-    private var _binding: FragmentContactoBinding? = null
+class NoveltiesFragment : Fragment() {
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private lateinit var noveltiesViewModel: NoveltiesViewModel
+    private var _binding: FragmentNoveltiesBinding? = null
+
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,14 +23,14 @@ class ContactoFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        contactoViewModel =
-            ViewModelProvider(this).get(ContactoViewModel::class.java)
+        noveltiesViewModel =
+            ViewModelProvider(this).get(NoveltiesViewModel::class.java)
 
-        _binding = FragmentContactoBinding.inflate(inflater, container, false)
+        _binding = FragmentNoveltiesBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.fragContacto
-        contactoViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.fragNovelties
+        noveltiesViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
@@ -41,4 +40,5 @@ class ContactoFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
+
 }

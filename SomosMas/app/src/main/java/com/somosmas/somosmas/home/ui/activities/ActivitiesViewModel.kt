@@ -1,13 +1,13 @@
-package com.somosmas.somosmas.home.ui.testimonios
+package com.somosmas.somosmas.home.ui.activities
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class TestimoniosViewModel : ViewModel() {
+class ActivitiesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is testimonios Fragment"
+        value = "This is actividades Fragment"
     }
     val text: LiveData<String> = _text
 }

@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.novedades
+package com.somosmas.somosmas.home.ui.us
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,15 +8,15 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentActividadesBinding
-import com.somosmas.somosmas.databinding.FragmentNovedadesBinding
+import com.somosmas.somosmas.databinding.FragmentUsBinding
 
+class UsFragment : Fragment() {
 
-class NovedadesFragment : Fragment() {
+    private lateinit var usViewModel: UsViewModel
+    private var _binding: FragmentUsBinding? = null
 
-    private lateinit var novedadesViewModel: NovedadesViewModel
-    private var _binding: FragmentNovedadesBinding? = null
-
+    // This property is only valid between onCreateView and
+    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,14 +24,14 @@ class NovedadesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        novedadesViewModel =
-            ViewModelProvider(this).get(NovedadesViewModel::class.java)
+        usViewModel =
+            ViewModelProvider(this).get(UsViewModel::class.java)
 
-        _binding = FragmentNovedadesBinding.inflate(inflater, container, false)
+        _binding = FragmentUsBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.fragNovedades
-        novedadesViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.fragUs
+        usViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root
@@ -41,5 +41,4 @@ class NovedadesFragment : Fragment() {
         super.onDestroyView()
         _binding = null
     }
-
 }

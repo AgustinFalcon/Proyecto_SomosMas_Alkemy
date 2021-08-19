@@ -3,44 +3,44 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mobile_navigation2"
-    app:startDestination="@+id/navInicio">
+    app:startDestination="@+id/navHome">
 
     <fragment
-        android:id="@+id/navInicio"
+        android:id="@+id/navHome"
         android:name="com.somosmas.somosmas.home.ui.home.HomeFragment"
         android:label="@string/inicio"
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navNosotros"
-        android:name="com.somosmas.somosmas.home.ui.nosotros.NosotrosFragment"
+        android:id="@+id/navUs"
+        android:name="com.somosmas.somosmas.home.ui.us.UsFragment"
         android:label="@string/nosotros"
-        tools:layout="@layout/fragment_nosotros" />
+        tools:layout="@layout/fragment_us" />
 
     <fragment
-        android:id="@+id/navActividades"
-        android:name="com.somosmas.somosmas.home.ui.actividades.ActividadesFragment"
+        android:id="@+id/navActivities"
+        android:name="com.somosmas.somosmas.home.ui.activities.ActivitiesFragment"
         android:label="@string/actividades"
-        tools:layout="@layout/fragment_actividades" />
+        tools:layout="@layout/fragment_activities" />
     <fragment
-        android:id="@+id/navNovedades"
-        android:name="com.somosmas.somosmas.home.ui.novedades.NovedadesFragment"
+        android:id="@+id/navNovelties"
+        android:name="com.somosmas.somosmas.home.ui.novelties.NoveltiesFragment"
         android:label="fragment_novedades"
-        tools:layout="@layout/fragment_novedades" />
+        tools:layout="@layout/fragment_novelties" />
     <fragment
-        android:id="@+id/navTestimonios"
-        android:name="com.somosmas.somosmas.home.ui.testimonios.TestimoniosFragment"
+        android:id="@+id/navTestimony"
+        android:name="com.somosmas.somosmas.home.ui.testimony.TestimonyFragment"
         android:label="fragment_testimonios"
-        tools:layout="@layout/fragment_testimonios" />
+        tools:layout="@layout/fragment_testimony" />
     <fragment
-        android:id="@+id/navContacto"
-        android:name="com.somosmas.somosmas.home.ui.contacto.ContactoFragment"
+        android:id="@+id/navContact"
+        android:name="com.somosmas.somosmas.home.ui.contact.ContactFragment"
         android:label="fragment_contacto"
-        tools:layout="@layout/fragment_contacto" />
+        tools:layout="@layout/fragment_contact" />
 
     <fragment
-        android:id="@+id/navContribuye"
-        android:name="com.somosmas.somosmas.home.ui.contribuye.ContribuyeFragment"
+        android:id="@+id/navContributie"
+        android:name="com.somosmas.somosmas.home.ui.contributie.ContributieFragment"
         android:label="fragment_contribuye"
-        tools:layout="@layout/fragment_contribuye" />
+        tools:layout="@layout/fragment_contributie" />
 </navigation>

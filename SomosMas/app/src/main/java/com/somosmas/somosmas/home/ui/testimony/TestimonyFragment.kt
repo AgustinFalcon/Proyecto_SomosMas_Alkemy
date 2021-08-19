@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.testimonios
+package com.somosmas.somosmas.home.ui.testimony
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,13 +8,13 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.databinding.FragmentTestimoniosBinding
+import com.somosmas.somosmas.databinding.FragmentTestimonyBinding
 
-class TestimoniosFragment : Fragment() {
+class TestimonyFragment : Fragment() {
 
-    private lateinit var testimoniosViewModel: TestimoniosViewModel
+    private lateinit var testimonyViewModel: TestimonyViewModel
 
-    private var _binding: FragmentTestimoniosBinding? = null
+    private var _binding: FragmentTestimonyBinding? = null
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -22,14 +22,14 @@ class TestimoniosFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        testimoniosViewModel =
-            ViewModelProvider(this).get(TestimoniosViewModel::class.java)
+        testimonyViewModel =
+            ViewModelProvider(this).get(TestimonyViewModel::class.java)
 
-        _binding = FragmentTestimoniosBinding.inflate(inflater, container, false)
+        _binding = FragmentTestimonyBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.fragTestimonios
-        testimoniosViewModel.text.observe(viewLifecycleOwner, Observer {
+        val textView: TextView = binding.fragTestimony
+        testimonyViewModel.text.observe(viewLifecycleOwner, Observer {
             textView.text = it
         })
         return root

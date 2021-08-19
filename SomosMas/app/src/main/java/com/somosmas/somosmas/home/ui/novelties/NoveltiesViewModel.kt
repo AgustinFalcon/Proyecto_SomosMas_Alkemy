@@ -1,13 +1,13 @@
-package com.somosmas.somosmas.home.ui.contribuye
+package com.somosmas.somosmas.home.ui.novelties
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 
-class ContribuyeViewModel : ViewModel() {
+class NoveltiesViewModel : ViewModel() {
 
     private val _text = MutableLiveData<String>().apply {
-        value = "This is contribuye Fragment"
+        value = "This is novedades Fragment"
     }
     val text: LiveData<String> = _text
 }
