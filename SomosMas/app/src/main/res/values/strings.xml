@@ -17,4 +17,7 @@
     <string name="contacto">Contacto</string>
     <string name="contribuye">Contribuye</string>
     <string name="something_went_wrong">something_went_wrong</string>
+    <string name="bienvenid">Bienvenid@</string>
+    <string name="hello">Hello</string>
+    <string name="ok">ok</string>
 </resources>
