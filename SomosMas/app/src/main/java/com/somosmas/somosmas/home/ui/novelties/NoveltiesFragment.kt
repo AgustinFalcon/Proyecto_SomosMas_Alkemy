@@ -37,7 +37,7 @@ class NoveltiesFragment : Fragment() {
         val root: View = binding.root
 
         //binding.rvFragmentNovelties.setHasFixedSize(true)
-        layoutManager = LinearLayoutManager(this)
+        layoutManager = LinearLayoutManager(context)
         binding.rvFragmentNovelties.layoutManager = layoutManager
 
         adapter = RecyclerAdapterNovelties()
