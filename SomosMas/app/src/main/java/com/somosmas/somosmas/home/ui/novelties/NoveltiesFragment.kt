@@ -5,10 +5,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.somosmas.somosmas.MainActivity
 import com.somosmas.somosmas.databinding.FragmentNoveltiesBinding
 
 
@@ -19,7 +22,8 @@ class NoveltiesFragment : Fragment() {
 
     private val binding get() = _binding!!
 
-    var layoutManager: RecyclerView.LayoutManager? = null
+    private var layoutManager: RecyclerView.LayoutManager? = null
+    private var adapter: RecyclerView.Adapter<RecyclerAdapterNovelties.ViewHolder>? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -31,6 +35,13 @@ class NoveltiesFragment : Fragment() {
 
         _binding = FragmentNoveltiesBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        //binding.rvFragmentNovelties.setHasFixedSize(true)
+        layoutManager = LinearLayoutManager(this)
+        binding.rvFragmentNovelties.layoutManager = layoutManager
+
+        adapter = RecyclerAdapterNovelties()
+        binding.rvFragmentNovelties.adapter = adapter
 
         val textView: TextView = binding.fragNovelties
         noveltiesViewModel.text.observe(viewLifecycleOwner, Observer {
