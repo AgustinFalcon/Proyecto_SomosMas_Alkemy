@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.RecyclerView
 import com.somosmas.somosmas.databinding.FragmentNoveltiesBinding
 
 
@@ -17,6 +18,8 @@ class NoveltiesFragment : Fragment() {
     private var _binding: FragmentNoveltiesBinding? = null
 
     private val binding get() = _binding!!
+
+    var layoutManager: RecyclerView.LayoutManager? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
