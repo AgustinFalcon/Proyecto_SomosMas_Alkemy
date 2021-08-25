@@ -12,7 +12,12 @@ import com.somosmas.somosmas.R
 class RecyclerAdapterNovelties: RecyclerView.Adapter<RecyclerAdapterNovelties.ViewHolder>(){
 
     private var title = arrayOf("Tarde deportiva","Tarde deportiva","Tarde deportiva","Tarde deportiva")
-    private var description = arrayOf("agregar texto","agregar texto","agregar texto","agregar texto")
+    private var description = arrayOf(
+        "Una ONG desarrolla una función social porque sus proyectos originan cambios positivos en familias, comunidades o sobre el planeta. Aunque su actividad es de interés común, su cometido no es reemplazar la labor de la administración. La clave para entender por qué son tan indispensables nos la ofrece Winnie Byanyima, directora ejecutiva de Oxfam Internacional.",
+        "Una ONG desarrolla una función social porque sus proyectos originan cambios positivos en familias, comunidades o sobre el planeta. Aunque su actividad es de interés común, su cometido no es reemplazar la labor de la administración. La clave para entender por qué son tan indispensables nos la ofrece Winnie Byanyima, directora ejecutiva de Oxfam Internacional.",
+        "Una ONG desarrolla una función social porque sus proyectos originan cambios positivos en familias, comunidades o sobre el planeta. Aunque su actividad es de interés común, su cometido no es reemplazar la labor de la administración. La clave para entender por qué son tan indispensables nos la ofrece Winnie Byanyima, directora ejecutiva de Oxfam Internacional.",
+        "Una ONG desarrolla una función social porque sus proyectos originan cambios positivos en familias, comunidades o sobre el planeta. Aunque su actividad es de interés común, su cometido no es reemplazar la labor de la administración. La clave para entender por qué son tan indispensables nos la ofrece Winnie Byanyima, directora ejecutiva de Oxfam Internacional."
+    )
     private var date = arrayOf("Publicado: 28/07/21","Publicado: 28/07/21","Publicado: 28/07/21","Publicado: 28/07/21")
     private var image = arrayOf(R.drawable.logo_somos_mas, R.drawable.logo_somos_mas, R.drawable.logo_somos_mas, R.drawable.logo_somos_mas)
 
