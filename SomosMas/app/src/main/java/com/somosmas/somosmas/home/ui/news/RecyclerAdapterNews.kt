@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.home.ui.novelties
+package com.somosmas.somosmas.home.ui.news
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,7 +9,7 @@ import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.somosmas.somosmas.R
 
-class RecyclerAdapterNovelties: RecyclerView.Adapter<RecyclerAdapterNovelties.ViewHolder>(){
+class RecyclerAdapterNews: RecyclerView.Adapter<RecyclerAdapterNews.ViewHolder>(){
 
     private var title = arrayOf("Tarde deportiva","Tarde deportiva","Tarde deportiva","Tarde deportiva")
     private var description = arrayOf(
@@ -45,12 +45,12 @@ class RecyclerAdapterNovelties: RecyclerView.Adapter<RecyclerAdapterNovelties.Vi
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
-    ): RecyclerAdapterNovelties.ViewHolder {
+    ): RecyclerAdapterNews.ViewHolder {
         val v = LayoutInflater.from(parent.context).inflate(R.layout.template_fragment_novelties, parent, false)
         return ViewHolder(v)
     }
 
-    override fun onBindViewHolder(holder: RecyclerAdapterNovelties.ViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: RecyclerAdapterNews.ViewHolder, position: Int) {
         holder.itemTitle.text = title[position]
         holder.itemDescription.text = description[position]
         holder.itemDate.text = date[position]

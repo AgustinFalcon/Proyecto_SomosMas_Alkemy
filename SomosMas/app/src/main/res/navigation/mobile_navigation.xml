@@ -24,9 +24,9 @@
         tools:layout="@layout/fragment_activities" />
     <fragment
         android:id="@+id/navNovelties"
-        android:name="com.somosmas.somosmas.home.ui.novelties.NoveltiesFragment"
+        android:name="com.somosmas.somosmas.home.ui.news.NewsFragment"
         android:label="@string/novedades"
-        tools:layout="@layout/fragment_novelties" />
+        tools:layout="@layout/fragment_news" />
     <fragment
         android:id="@+id/navTestimony"
         android:name="com.somosmas.somosmas.home.ui.testimony.TestimonyFragment"
