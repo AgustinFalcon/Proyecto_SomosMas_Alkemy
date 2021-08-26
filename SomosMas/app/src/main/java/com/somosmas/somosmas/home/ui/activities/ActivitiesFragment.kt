@@ -12,7 +12,6 @@ import com.somosmas.somosmas.databinding.FragmentActivitiesBinding
 
 class ActivitiesFragment : Fragment() {
 
-    private lateinit var activitiesViewModel: ActivitiesViewModel
     private var _binding: FragmentActivitiesBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,17 +23,9 @@ class ActivitiesFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        activitiesViewModel =
-            ViewModelProvider(this).get(ActivitiesViewModel::class.java)
-
         _binding = FragmentActivitiesBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.fragActividades
-        activitiesViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

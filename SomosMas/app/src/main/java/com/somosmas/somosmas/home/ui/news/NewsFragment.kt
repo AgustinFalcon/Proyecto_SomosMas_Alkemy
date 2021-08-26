@@ -15,7 +15,6 @@ import com.somosmas.somosmas.databinding.FragmentNewsBinding
 
 class NewsFragment : Fragment() {
 
-    private lateinit var newsViewModel: NewsViewModel
     private var _binding: FragmentNewsBinding? = null
 
     private val binding get() = _binding!!
@@ -28,11 +27,7 @@ class NewsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        newsViewModel =
-            ViewModelProvider(this).get(NewsViewModel::class.java)
-
         _binding = FragmentNewsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         //binding.rvFragmentNovelties.setHasFixedSize(true)
         layoutManager = LinearLayoutManager(context)
@@ -41,11 +36,7 @@ class NewsFragment : Fragment() {
         adapter = RecyclerAdapterNews()
         binding.rvFragmentNovelties.adapter = adapter
 
-        val textView: TextView = binding.fragNovelties
-        newsViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

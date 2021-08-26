@@ -12,8 +12,6 @@ import com.somosmas.somosmas.databinding.FragmentTestimonyBinding
 
 class TestimonyFragment : Fragment() {
 
-    private lateinit var testimonyViewModel: TestimonyViewModel
-
     private var _binding: FragmentTestimonyBinding? = null
     private val binding get() = _binding!!
 
@@ -22,17 +20,9 @@ class TestimonyFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        testimonyViewModel =
-            ViewModelProvider(this).get(TestimonyViewModel::class.java)
-
         _binding = FragmentTestimonyBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.fragTestimony
-        testimonyViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

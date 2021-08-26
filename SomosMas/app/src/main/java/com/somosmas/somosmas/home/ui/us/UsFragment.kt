@@ -12,7 +12,6 @@ import com.somosmas.somosmas.databinding.FragmentUsBinding
 
 class UsFragment : Fragment() {
 
-    private lateinit var usViewModel: UsViewModel
     private var _binding: FragmentUsBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,17 +23,9 @@ class UsFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        usViewModel =
-            ViewModelProvider(this).get(UsViewModel::class.java)
-
         _binding = FragmentUsBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.fragUs
-        usViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
