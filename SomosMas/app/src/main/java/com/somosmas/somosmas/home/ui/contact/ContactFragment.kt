@@ -12,7 +12,6 @@ import com.somosmas.somosmas.databinding.FragmentContactBinding
 
 class ContactFragment : Fragment() {
 
-    private lateinit var contactViewModel: ContactViewModel
     private var _binding: FragmentContactBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,17 +23,10 @@ class ContactFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        contactViewModel =
-            ViewModelProvider(this).get(ContactViewModel::class.java)
 
         _binding = FragmentContactBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.fragContact
-        contactViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {

@@ -5,10 +5,12 @@ import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -18,6 +20,7 @@ import com.somosmas.somosmas.SliderAdapter
 import com.somosmas.somosmas.SliderItem
 import com.somosmas.somosmas.adapter.SliderSeccionWelcomeAdapter
 import com.somosmas.somosmas.databinding.FragmentHomeBinding
+import com.somosmas.somosmas.home.homelastnews.AdapterRecyclerLastNews
 import java.util.ArrayList
 import kotlin.math.abs
 
@@ -29,6 +32,9 @@ class HomeFragment : Fragment() {
     private lateinit var sliderAdapter: SliderAdapter
     private lateinit var sliderHandle: Handler
     private lateinit var sliderRun: Runnable
+
+    //recycler view last news
+    private lateinit var adapterLastNews: AdapterRecyclerLastNews
 
     private val listTitle = listOf(
         "Riendo",
@@ -70,6 +76,11 @@ class HomeFragment : Fragment() {
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
         val root: View = binding.root
+
+        //implement recyclerview lastnews at home
+        adapterLastNews = AdapterRecyclerLastNews()
+        binding.rvHomeUltimasNovedades.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        binding.rvHomeUltimasNovedades.adapter = adapterLastNews
 
         sliderItems()
         itemSliderView()

@@ -12,7 +12,6 @@ import com.somosmas.somosmas.databinding.FragmentContributieBinding
 
 class ContributieFragment : Fragment() {
 
-    private lateinit var contributieViewModel: ContributieViewModel
     private var _binding: FragmentContributieBinding? = null
 
     // This property is only valid between onCreateView and
@@ -24,17 +23,10 @@ class ContributieFragment : Fragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        contributieViewModel =
-            ViewModelProvider(this).get(ContributieViewModel::class.java)
 
         _binding = FragmentContributieBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
-        val textView: TextView = binding.fragContributie
-        contributieViewModel.text.observe(viewLifecycleOwner, Observer {
-            textView.text = it
-        })
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
