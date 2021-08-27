@@ -1,16 +1,17 @@
 package com.somosmas.somosmas.home.ui.home
 
+
 import android.os.Bundle
 import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Adapter
-import android.widget.TextView
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.OrientationHelper
+import androidx.recyclerview.widget.OrientationHelper.createHorizontalHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -18,7 +19,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.somosmas.somosmas.R
 import com.somosmas.somosmas.SliderAdapter
 import com.somosmas.somosmas.SliderItem
-import com.somosmas.somosmas.adapter.SliderSeccionWelcomeAdapter
 import com.somosmas.somosmas.databinding.FragmentHomeBinding
 import com.somosmas.somosmas.home.homelastnews.AdapterRecyclerLastNews
 import java.util.ArrayList
@@ -34,7 +34,7 @@ class HomeFragment : Fragment() {
     private lateinit var sliderRun: Runnable
 
     //recycler view last news
-    private lateinit var adapterLastNews: AdapterRecyclerLastNews
+
 
     private val listTitle = listOf(
         "Riendo",
@@ -75,18 +75,22 @@ class HomeFragment : Fragment() {
             ViewModelProvider(this).get(HomeViewModel::class.java)
 
         _binding = FragmentHomeBinding.inflate(inflater, container, false)
-        val root: View = binding.root
 
         //implement recyclerview lastnews at home
-        adapterLastNews = AdapterRecyclerLastNews()
+        val image: ArrayList<String> = ArrayList()
+
+        for(i in 1..100){
+            image.add("image $i")
+        }
         binding.rvHomeUltimasNovedades.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvHomeUltimasNovedades.adapter = adapterLastNews
+        binding.rvHomeUltimasNovedades.adapter = AdapterRecyclerLastNews(image)
 
         sliderItems()
         itemSliderView()
 
-        return root
+        return binding.root
     }
+
 
     override fun onDestroyView() {
         super.onDestroyView()
@@ -94,31 +98,31 @@ class HomeFragment : Fragment() {
     }
 
     private fun sliderItems() {
-    sliderItemList= ArrayList()
-        sliderAdapter=SliderAdapter(binding.viewPager, sliderItemList,listTitle, listDescription)
-        binding.viewPager.adapter=sliderAdapter
-        binding.viewPager.clipToPadding= false
-        binding.viewPager.clipChildren =false
-        binding.viewPager.offscreenPageLimit=3
-        binding.viewPager.getChildAt(0).overScrollMode= RecyclerView.OVER_SCROLL_NEVER
+        sliderItemList = ArrayList()
+        sliderAdapter = SliderAdapter(binding.viewPager, sliderItemList, listTitle, listDescription)
+        binding.viewPager.adapter = sliderAdapter
+        binding.viewPager.clipToPadding = false
+        binding.viewPager.clipChildren = false
+        binding.viewPager.offscreenPageLimit = 3
+        binding.viewPager.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
 
-        val comPosPageTarn=CompositePageTransformer()
+        val comPosPageTarn = CompositePageTransformer()
         comPosPageTarn.addTransformer(MarginPageTransformer(40))
         comPosPageTarn.addTransformer { page, position ->
-            val r:Float=1 - abs(position)
-            page.scaleY=0.85f + r* 0.15f
+            val r: Float = 1 - abs(position)
+            page.scaleY = 0.85f + r * 0.15f
         }
         binding.viewPager.setPageTransformer(comPosPageTarn)
-        sliderHandle= Handler()
-        sliderRun= Runnable {
-            binding.viewPager.currentItem=binding.viewPager.currentItem+1
+        sliderHandle = Handler()
+        sliderRun = Runnable {
+            binding.viewPager.currentItem = binding.viewPager.currentItem + 1
         }
         binding.viewPager.registerOnPageChangeCallback(
-            object : ViewPager2.OnPageChangeCallback(){
+            object : ViewPager2.OnPageChangeCallback() {
                 override fun onPageSelected(position: Int) {
                     super.onPageSelected(position)
                     sliderHandle.removeCallbacks(sliderRun)
-                    sliderHandle.postDelayed(sliderRun,4000)
+                    sliderHandle.postDelayed(sliderRun, 4000)
                 }
             }
         )
@@ -131,7 +135,7 @@ class HomeFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        sliderHandle.postDelayed(sliderRun,2000)
+        sliderHandle.postDelayed(sliderRun, 2000)
     }
 
     private fun itemSliderView() {
