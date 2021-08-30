@@ -3,10 +3,11 @@ package com.somosmas.somosmas
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.os.Handler
 import android.view.View
+import android.os.Handler
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
+import com.somosmas.somosmas.RecyclerView.SliderSeccionWelcomeAdapter
 import com.somosmas.somosmas.databinding.ActivityMainBinding
 import com.somosmas.somosmas.desingUI.CustomDialogFragment
 import com.somosmas.somosmas.desingUI.LoadingDialog
@@ -41,6 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProvider(this).get(LoginViewModel::class.java)
         viewModel.viewState.observe(this, ::handleViewStates)
+
         viewModel.viewStateBtn.observe(this, ::handleBtnStates)
 
         binding.inputEmail.addTextChangedListener {

@@ -12,13 +12,11 @@ import com.somosmas.somosmas.singUpViewModel.*
 
 
 class SingUpActivity : AppCompatActivity() {
-
     private lateinit var binding : ActivitySingUpBinding
     private lateinit var singUpViewModel : SingUpViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         binding = ActivitySingUpBinding.inflate(layoutInflater)
         setContentView(binding.root)
 

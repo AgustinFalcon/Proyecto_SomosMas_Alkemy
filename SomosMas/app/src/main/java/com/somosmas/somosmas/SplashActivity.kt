@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import com.somosmas.somosmas.home.HomeActivity
+import com.somosmas.somosmas.home.ui.home.HomeFragment
 
 
 class SplashActivity : AppCompatActivity() {

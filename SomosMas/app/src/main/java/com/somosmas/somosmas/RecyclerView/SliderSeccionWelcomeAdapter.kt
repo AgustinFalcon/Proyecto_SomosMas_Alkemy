@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.adapter
+package com.somosmas.somosmas.RecyclerView
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -6,9 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager.widget.PagerAdapter
 import com.somosmas.somosmas.R
-import com.somosmas.somosmas.databinding.ItemPhotoBinding
 
 class
 SliderSeccionWelcomeAdapter(
@@ -29,10 +29,12 @@ SliderSeccionWelcomeAdapter(
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = LayoutInflater.from(ctx)
         var view = layoutInflater.inflate(R.layout.item_photo, container, false)
-        val binding = ItemPhotoBinding.bind(view)
-        binding.txtTitle.text = titleList.get(position)
-        binding.txtDescription.text = descriptionList.get(position)
-        binding.imageSlide.setImageResource(listPhoto.get(position))
+        val img = view.findViewById<ImageView>(R.id.imageSlide)
+        val title = view.findViewById<TextView>(R.id.txtTitle)
+        val description = view.findViewById<TextView>(R.id.txtDescription)
+        title.text = titleList.get(position)
+        description.text = descriptionList.get(position)
+        img.setImageResource(listPhoto.get(position))
 
         container.addView(view, 0)
         return view
