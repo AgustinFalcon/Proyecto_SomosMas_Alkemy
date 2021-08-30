@@ -78,10 +78,10 @@ class HomeFragment : Fragment() {
 
         //implement recyclerview lastnews at home
         val image: ArrayList<String> = ArrayList()
-
         for(i in 1..100){
             image.add("image $i")
         }
+
         binding.rvHomeUltimasNovedades.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
         binding.rvHomeUltimasNovedades.adapter = AdapterRecyclerLastNews(image)
 
