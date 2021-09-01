@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="13dp"
-        android:text="@string/bienvenid"
+        android:text="bienvenid"
         android:textColor="@color/black"
         android:textSize="40sp"
         android:textStyle="normal"
@@ -34,6 +34,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvHomeUltimasNovedades"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintLeft_toLeftOf="parent"

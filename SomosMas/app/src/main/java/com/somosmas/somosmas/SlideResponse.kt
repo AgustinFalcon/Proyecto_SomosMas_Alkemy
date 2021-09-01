@@ -1,8 +1,9 @@
 package com.somosmas.somosmas
 
+import com.google.gson.annotations.SerializedName
+
 //incorpored @SerializedName to all atributes
 
-import com.google.gson.annotations.SerializedName
 
 data class SlideResponse(
 
