@@ -2,12 +2,13 @@ package com.somosmas.somosmas.home.ui.home
 
 import android.os.Bundle
 import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -32,8 +33,9 @@ class HomeFragment : Fragment() {
     private var sliderHandle: Handler= Handler()
     private lateinit var sliderRun: Runnable
     private lateinit var viewModel: SliderViewModel
+    private lateinit var viewModelLastNews: LastNewsViewModel
     private lateinit var listData: MutableList<Data>
-    private lateinit var listLastNews: MutableList<LastNewsViewModel>
+    private lateinit var listLastNews: MutableList<DataLastNews>
     private lateinit var lastNewsAdapter: AdapterRecyclerLastNews
 
 
@@ -49,17 +51,20 @@ class HomeFragment : Fragment() {
 
 
         //implement recyclerview lastnews at home
-        val image: ArrayList<String> = ArrayList()
+        /*val image: ArrayList<String> = ArrayList()
         for(i in 1..10){
             image.add("image $i")
         }
         binding.rvHomeUltimasNovedades.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        binding.rvHomeUltimasNovedades.adapter = AdapterRecyclerLastNews(image)
+        binding.rvHomeUltimasNovedades.adapter = AdapterRecyclerLastNews(image)*/
 
 
 
         viewModel = ViewModelProvider(this).get(SliderViewModel::class.java)
         viewModel.viewStates.observe(::getLifecycle,::handleViewStates)
+
+        viewModelLastNews = ViewModelProvider(this).get(LastNewsViewModel::class.java)
+        viewModelLastNews.viewStateLastNews.observe(::getLifecycle, ::handleLastNewsViewStates)
 
         return binding.root
     }
@@ -110,16 +115,17 @@ class HomeFragment : Fragment() {
     }
 
 
-    private fun handleListNewsViewStates(listNewsResponse: ViewStateLastNews){
-        when(listNewsResponse){
+    private fun handleLastNewsViewStates(lastNewsResponse: ViewStateLastNews){
+        when(lastNewsResponse){
             is ViewStateLastNews.Error -> {
                 //msjError
             }
 
             is ViewStateLastNews.LastNewsResponse -> {
-                listLastNews = listNewsResponse.dataLastNews as MutableList<DataLastNews>
-                val image: MutableList<DataLastNews> = ArrayList()
-                lastNewsAdapter = 
+                listLastNews = lastNewsResponse.dataLastNews as MutableList<DataLastNews>
+
+                lastNewsAdapter = AdapterRecyclerLastNews(listLastNews)
+                binding.rvHomeUltimasNovedades.adapter = lastNewsAdapter
 
             }
         }

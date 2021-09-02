@@ -10,6 +10,6 @@ interface APIService {
     suspend fun getListSlider(@Url url:String): Response<SlideResponse>
 
     @GET
-    fun getListLastNews(@Url url:String): Response<LastNewsResponse>
+    suspend fun getListLastNews(@Url url:String): Response<LastNewsResponse>
 
 }

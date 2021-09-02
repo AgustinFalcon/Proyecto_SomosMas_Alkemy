@@ -1,5 +1,6 @@
 package com.somosmas.somosmas.homelastnews
 
+import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -15,7 +16,6 @@ class LastNewsViewModel: ViewModel() {
     private var _viewState = MutableLiveData<ViewStates>()
     private var _viewStateLastNews = MutableLiveData<ViewStateLastNews>()
 
-    val viewStates: LiveData<ViewStates> get() = _viewState
     val viewStateLastNews: LiveData<ViewStateLastNews> get() = _viewStateLastNews
 
 
@@ -23,14 +23,15 @@ class LastNewsViewModel: ViewModel() {
         val retrofit = RetrofitClient.builderRetrofit
         val call = retrofit.create(APIService::class.java).getListLastNews("news")
         val lastNews: LastNewsResponse? = call.body()
+        Log.d("Hola","$lastNews")
         return@withContext lastNews!!
     }
 
     init {
         viewModelScope.launch {
             val lastNews = callLastNews()
-            if (lastNews.succes) {
-                _viewStateLastNews.value = ViewStateLastNews.LastNewsResponse(lastNews.data)
+            if (lastNews.succes.not()) {
+                _viewStateLastNews.value = ViewStateLastNews.LastNewsResponse(lastNews.dataLastNews.subList(0,4))
             } else {
                 _viewStateLastNews.value = ViewStateLastNews.Error
             }

@@ -9,7 +9,7 @@ import com.somosmas.somosmas.R
 import com.somosmas.somosmas.databinding.ItemRecyclerviewLastnewsBinding
 import com.squareup.picasso.Picasso
 
-class AdapterRecyclerLastNews(val lastNewsList: MutableList<DataLastNews>): RecyclerView.Adapter<AdapterRecyclerLastNews.ViewHolder>() {
+class AdapterRecyclerLastNews(private val lastNewsList: MutableList<DataLastNews>): RecyclerView.Adapter<AdapterRecyclerLastNews.ViewHolder>() {
 
 
 
