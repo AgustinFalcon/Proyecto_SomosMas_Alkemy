@@ -13,8 +13,8 @@ import kotlinx.coroutines.withContext
 
 
 class LastNewsViewModel: ViewModel() {
-    private var _viewStateLastNews = MutableLiveData<ViewStateLastNews>()
 
+    private var _viewStateLastNews = MutableLiveData<ViewStateLastNews>()
     val viewStateLastNews: LiveData<ViewStateLastNews> get() = _viewStateLastNews
 
 
@@ -29,14 +29,13 @@ class LastNewsViewModel: ViewModel() {
         viewModelScope.launch {
             val lastNews = callLastNews()
             _viewStateLastNews.value = if (lastNews.succes.not()) {
-                ViewStateLastNews.LastNewsResponse(lastNews.data.subList(0,4))
+                ViewStateLastNews.LastNewsResponse(lastNews.data.subList(0, 4))
             } else {
                 ViewStateLastNews.Error
             }
         }
     }
 }
-
 
 sealed class ViewStateLastNews {
     object Error : ViewStateLastNews()

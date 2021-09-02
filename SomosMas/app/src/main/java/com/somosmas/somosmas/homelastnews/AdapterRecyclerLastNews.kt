@@ -25,8 +25,8 @@ class AdapterRecyclerLastNews(private val lastNewsList: MutableList<DataLastNews
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val name = lastNewsList[position].name
         val image = lastNewsList[position].image
-        Picasso.get().load(image).into(holder.binding.ivImage)
-        holder.binding.txtName.text = name
+        Picasso.get().load(image).into(holder.binding.imgLastNews)
+        holder.binding.txtLastNews.text = name
     }
 
     override fun getItemCount(): Int = lastNewsList.size
