@@ -40,7 +40,7 @@ class HomeFragment : Fragment() {
 
     private lateinit var viewModelLastNews: LastNewsViewModel
     private lateinit var listLastNews: MutableList<DataLastNews>
-    private lateinit var lastNewsResponse: AdapterRecyclerLastNews
+    private lateinit var lastNewsAdapter: AdapterRecyclerLastNews
 
 
     // This property is only valid between onCreateView and
@@ -58,7 +58,7 @@ class HomeFragment : Fragment() {
         viewModel.viewStates.observe(::getLifecycle, ::handleViewStates)
 
         viewModel.viewStatesTestimony.observe(::getLifecycle, ::handleTestimonyViewStates)
-        viewModel.viewStates.observe(::getLifecycle,::handleViewStates)
+        viewModel.viewStates.observe(::getLifecycle, ::handleViewStates)
 
         viewModelLastNews = ViewModelProvider(this).get(LastNewsViewModel::class.java)
         viewModelLastNews.viewStateLastNews.observe(::getLifecycle, ::handleLastNewsViewStates)
@@ -103,6 +103,7 @@ class HomeFragment : Fragment() {
             }
         }
     }
+
     private fun handleViewStates(slideResponse: ViewStates) {
         when (slideResponse) {
             is ViewStates.Error -> {
@@ -126,11 +127,10 @@ class HomeFragment : Fragment() {
             }
         }
     }
-}
 
 
-    private fun handleLastNewsViewStates(lastNewsResponse: ViewStateLastNews){
-        when(lastNewsResponse){
+    private fun handleLastNewsViewStates(lastNewsResponse: ViewStateLastNews) {
+        when (lastNewsResponse) {
             is ViewStateLastNews.Error -> {
                 //msjError
             }
@@ -144,3 +144,4 @@ class HomeFragment : Fragment() {
         }
 
     }
+}

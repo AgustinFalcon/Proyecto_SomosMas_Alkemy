@@ -4,7 +4,7 @@ import com.google.gson.annotations.SerializedName
 
 data class LastNewsResponse(
     @SerializedName("succes")val succes: Boolean,
-    @SerializedName("data")val dataLastNews: List<DataLastNews>)
+    @SerializedName("data")val data: List<DataLastNews>)
 
 data class DataLastNews(
     @SerializedName("id") val id: Int,

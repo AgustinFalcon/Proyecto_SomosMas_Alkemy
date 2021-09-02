@@ -12,6 +12,9 @@
     <dimen name="fab_margin">16dp</dimen>
     <dimen name="imgWidth">100dp</dimen>
     <dimen name="imgHeight">100dp</dimen>
+    <dimen name="imgWidthLastNews">200dp</dimen>
+    <dimen name="imgHeight">100dp</dimen>
+
     <dimen name="paddingCardViewTestimony">16dp</dimen>
     <dimen name="marginCardViewTestimony">16dp</dimen>
     <dimen name="radiusCardViewtestimony">15dp</dimen>
