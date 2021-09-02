@@ -57,6 +57,7 @@ class SliderViewModel : ViewModel() {
             }
         }
     }
+
 }
 
 sealed class ViewStates {

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
-import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import androidx.viewpager2.widget.CompositePageTransformer
 import androidx.viewpager2.widget.MarginPageTransformer
@@ -33,63 +32,61 @@ class HomeFragment : Fragment() {
     private lateinit var listData: MutableList<Data>
     private lateinit var listTestimony: MutableList<DataTestimony>
     private lateinit var testimonyAdapter: SliderTestimonyAdapter
-
+    private var binding: FragmentHomeBinding? = null
     // This property is only valid between onCreateView and
     // onDestroyView.
-    private val binding get() = _binding
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View? {
         homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
 
-        _binding = FragmentHomeBinding.inflate(inflater, container, false)
-
-        val root: View = binding!!.root
+        binding = FragmentHomeBinding.inflate(inflater, container, false)
 
 
         viewModel = ViewModelProvider(this).get(SliderViewModel::class.java)
         viewModel.viewStates.observe(::getLifecycle, ::handleViewStates)
         viewModel.viewStatesTestimony.observe(::getLifecycle, ::handleTestimonyViewStates)
-        return root
+        return binding?.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 
 
     private fun sliderItems() {
-        with(binding!!.viewPager) {
-            sliderAdapter = SliderAdapter(binding!!.viewPager, listData)
-            this.adapter = sliderAdapter
-            this.clipToPadding = false
-            this.clipChildren = false
-            this.offscreenPageLimit = 3
-            this.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
-            val comPosPageTarn = CompositePageTransformer()
-            comPosPageTarn.addTransformer(MarginPageTransformer(40))
-            comPosPageTarn.addTransformer { page, position ->
-                val r: Float = 1 - abs(position)
-                page.scaleY = 0.85f + r * 0.15f
-            }
-            this.setPageTransformer(comPosPageTarn)
-            sliderRun = Runnable {
-                this.currentItem = binding!!.viewPager.currentItem + 1
-            }
-            this.registerOnPageChangeCallback(
-                object : ViewPager2.OnPageChangeCallback() {
-                    override fun onPageSelected(position: Int) {
-                        super.onPageSelected(position)
-                        sliderHandle.removeCallbacks(sliderRun)
-                        sliderHandle.postDelayed(sliderRun, 4000)
-                    }
+        binding?.apply {
+            with(viewPager) {
+                sliderAdapter = SliderAdapter(this, listData)
+                this.adapter = sliderAdapter
+                this.clipToPadding = false
+                this.clipChildren = false
+                this.offscreenPageLimit = 3
+                this.getChildAt(0).overScrollMode = RecyclerView.OVER_SCROLL_NEVER
+                val comPosPageTarn = CompositePageTransformer()
+                comPosPageTarn.addTransformer(MarginPageTransformer(40))
+                comPosPageTarn.addTransformer { page, position ->
+                    val r: Float = 1 - abs(position)
+                    page.scaleY = 0.85f + r * 0.15f
                 }
-            )
+                this.setPageTransformer(comPosPageTarn)
+                sliderRun = Runnable {
+                    this.currentItem = this.currentItem + 1
+                }
+                this.registerOnPageChangeCallback(
+                    object : ViewPager2.OnPageChangeCallback() {
+                        override fun onPageSelected(position: Int) {
+                            super.onPageSelected(position)
+                            sliderHandle.removeCallbacks(sliderRun)
+                            sliderHandle.postDelayed(sliderRun, 4000)
+                        }
+                    }
+                )
+            }
         }
     }
-
     private fun handleViewStates(slideResponse: ViewStates) {
         when (slideResponse) {
             is ViewStates.Error -> {
@@ -108,21 +105,11 @@ class HomeFragment : Fragment() {
             }
             is ViewStateTestimony.TestimonyResponse -> {
                 listTestimony = testimonyResponse.dataTestimony as MutableList<DataTestimony>
-                val image: MutableList<DataTestimony> = ArrayList()
                 testimonyAdapter = SliderTestimonyAdapter(listTestimony)
-                binding!!.rvTestimony.adapter = testimonyAdapter
+                binding?.rvTestimony?.adapter = testimonyAdapter
             }
         }
     }
-
-    /* override fun onPause() {
-         super.onPause()
-         sliderHandle.removeCallbacks(sliderRun)
-     }
-     override fun onResume() {
-         super.onResume()
-         sliderHandle.postDelayed(sliderRun, 2000)
-     }*/
 }
 
 
