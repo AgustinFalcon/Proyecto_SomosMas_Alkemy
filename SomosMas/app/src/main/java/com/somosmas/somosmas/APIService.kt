@@ -7,4 +7,6 @@ import retrofit2.http.Url
 interface APIService {
     @GET
     suspend fun getListSlider(@Url url:String):Response<SlideResponse>
+    @GET
+    suspend fun getListSliderTestimony(@Url url:String):Response<TestimonyResponse>
 }
