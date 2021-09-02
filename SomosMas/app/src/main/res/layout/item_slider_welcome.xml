@@ -15,8 +15,7 @@
         app:cardCornerRadius="15dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="MissingConstraints">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -64,11 +63,7 @@
                     android:textColor="@color/white"
                     android:textSize="14sp" />
             </LinearLayout>
-
-
         </RelativeLayout>
-
-
 
     </androidx.cardview.widget.CardView>
 

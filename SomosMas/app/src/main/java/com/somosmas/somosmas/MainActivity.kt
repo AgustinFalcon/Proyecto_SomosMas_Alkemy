@@ -7,7 +7,6 @@ import android.view.View
 import android.os.Handler
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
-import com.somosmas.somosmas.RecyclerView.SliderSeccionWelcomeAdapter
 import com.somosmas.somosmas.databinding.ActivityMainBinding
 import com.somosmas.somosmas.desingUI.CustomDialogFragment
 import com.somosmas.somosmas.desingUI.LoadingDialog

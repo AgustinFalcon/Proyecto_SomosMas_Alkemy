@@ -1,4 +1,4 @@
-package com.somosmas.somosmas.RecyclerView
+package com.somosmas.somosmas.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -28,7 +28,7 @@ SliderSeccionWelcomeAdapter(
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
         layoutInflater = LayoutInflater.from(ctx)
-        var view = layoutInflater.inflate(R.layout.item_photo, container, false)
+        var view = layoutInflater.inflate(R.layout.item_slider_welcome, container, false)
         val img = view.findViewById<ImageView>(R.id.imageSlide)
         val title = view.findViewById<TextView>(R.id.txtTitle)
         val description = view.findViewById<TextView>(R.id.txtDescription)
