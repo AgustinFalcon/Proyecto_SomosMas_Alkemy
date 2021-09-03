@@ -17,5 +17,6 @@
     <dimen name="paddingCardViewTestimony">16dp</dimen>
     <dimen name="marginCardViewTestimony">16dp</dimen>
     <dimen name="radiusCardViewtestimony">15dp</dimen>
-    <dimen name="textSizeTestimony">35sp</dimen>
+    <dimen name="textSizeTestimony">25sp</dimen>
+    <dimen name="textSizeBienvenidos">35sp</dimen>
 </resources>
