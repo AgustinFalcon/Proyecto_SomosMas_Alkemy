@@ -12,24 +12,20 @@ import com.somosmas.somosmas.databinding.FragmentUsBinding
 
 class UsFragment : Fragment() {
 
-    private var _binding: FragmentUsBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private var binding: FragmentUsBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentUsBinding.inflate(inflater, container, false)
+        binding = FragmentUsBinding.inflate(inflater, container, false)
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 }

@@ -28,7 +28,6 @@ import kotlin.math.abs
 class HomeFragment : Fragment() {
 
     private lateinit var homeViewModel: HomeViewModel
-    private var _binding: FragmentHomeBinding? = null
     private lateinit var sliderAdapter: SliderAdapter
     private var sliderHandle: Handler = Handler()
     private lateinit var sliderRun: Runnable

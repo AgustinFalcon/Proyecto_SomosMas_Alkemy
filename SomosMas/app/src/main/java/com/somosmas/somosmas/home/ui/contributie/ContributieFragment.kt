@@ -12,11 +12,7 @@ import com.somosmas.somosmas.databinding.FragmentContributieBinding
 
 class ContributieFragment : Fragment() {
 
-    private var _binding: FragmentContributieBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
-    private val binding get() = _binding!!
+    private var binding: FragmentContributieBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -24,14 +20,13 @@ class ContributieFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
 
-        _binding = FragmentContributieBinding.inflate(inflater, container, false)
-
-        return binding.root
+        binding = FragmentContributieBinding.inflate(inflater, container, false)
+        return binding?.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 
 

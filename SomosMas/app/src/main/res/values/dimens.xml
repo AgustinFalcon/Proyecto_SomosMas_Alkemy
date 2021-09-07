@@ -14,8 +14,15 @@
     <dimen name="txtWidthBodyNovelties">200dp</dimen>
     <dimen name="imgHeight">100dp</dimen>
     <dimen name="imgWidthLastNews">200dp</dimen>
+    <dimen name="txtItemRvLastNews">150dp</dimen>
 
+    <dimen name="txtSize20">20dp</dimen>
+    <dimen name="margin16">16dp</dimen>
+    <dimen name="marginTitleFragmentNews">8dp</dimen>
+    <dimen name="marginTopBienvenidosTitle">13dp</dimen>
     <dimen name="paddingCardViewTestimony">16dp</dimen>
+    <dimen name="paddinTopLastNewsTitle">28dp</dimen>
+    <dimen name="paddingCarruselHome">30dp</dimen>
     <dimen name="marginCardViewTestimony">16dp</dimen>
     <dimen name="radiusCardViewtestimony">15dp</dimen>
     <dimen name="textSizeTestimony">25sp</dimen>

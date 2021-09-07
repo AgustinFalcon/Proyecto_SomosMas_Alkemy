@@ -43,13 +43,13 @@
     <TextView
         android:id="@+id/txtLastNews"
         android:layout_gravity="center"
-        android:layout_width="150dp"
+        android:layout_width="@dimen/txtItemRvLastNews"
         android:layout_height="wrap_content"
         android:maxLines="1"
         android:textAlignment="center"
         android:textAppearance="?attr/textAppearanceHeadline6"
         android:textColor="@color/black"
-        android:text="" />
+        android:text=""/>
     </LinearLayout>
 
 

@@ -12,21 +12,20 @@ import com.somosmas.somosmas.databinding.FragmentTestimonyBinding
 
 class TestimonyFragment : Fragment() {
 
-    private var _binding: FragmentTestimonyBinding? = null
-    private val binding get() = _binding!!
+    private var binding: FragmentTestimonyBinding? = null
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentTestimonyBinding.inflate(inflater, container, false)
+        binding = FragmentTestimonyBinding.inflate(inflater, container, false)
 
-        return binding.root
+        return binding?.root
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        _binding = null
+        binding = null
     }
 }
