@@ -24,15 +24,9 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val retrofitConnection = RetrofitClient().getRetrofit()
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-
-        //INTENT DE LOGIN A SING UP
-        binding.btnSingUp.setOnClickListener {
-            val intent = Intent(this, SingUpActivity::class.java)
-            startActivity(intent)
-        }
 
 
         val loadin=LoadingDialog(this)

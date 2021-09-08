@@ -13,16 +13,16 @@
 
 
         <TextView
-            android:id="@+id/textView"
+            android:id="@+id/textViewBienvenidos"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="13dp"
-            android:text="@string/bienvenid"
+            android:layout_marginTop="@dimen/marginTopBienvenidosTitle"
+            android:text="@string/bienvenidos"
             android:textColor="@color/black"
-            android:textSize="@dimen/textSizeTestimony"
+            android:textSize="@dimen/textSizeBienvenidos"
             android:textStyle="normal"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintTop_toTopOf="parent"
             tools:ignore="MissingConstraints" />
 
@@ -30,37 +30,57 @@
             android:id="@+id/viewPager"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:paddingStart="30dp"
-            android:paddingEnd="30dp"
+            android:paddingStart="@dimen/paddingCarruselHome"
+            android:paddingEnd="@dimen/paddingCarruselHome"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textView" />
+            app:layout_constraintTop_toBottomOf="@+id/textViewBienvenidos" />
+
+
+        <TextView
+            android:id="@+id/textViewLastNews"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/ultimas_novedades"
+            android:textColor="@color/black"
+            android:textSize="@dimen/textSizeTestimony"
+            android:paddingTop="@dimen/paddinTopLastNewsTitle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/viewPager"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rvHomeUltimasNovedades"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            app:layout_constraintBottom_toTopOf="@+id/textViewTestimony"
+            app:layout_constraintTop_toBottomOf="@+id/textViewLastNews" />
+
 
         <TextView
             android:id="@+id/textViewTestimony"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Testimonios"
+            android:text="@string/testimonios"
             android:textColor="@color/black"
             android:textSize="@dimen/textSizeTestimony"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.479"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/viewPager"
-            app:layout_constraintVertical_bias="0.552" />
+            android:paddingTop="@dimen/paddinTopLastNewsTitle"
+            app:layout_constraintBottom_toTopOf="@id/rvTestimony"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
 
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rvTestimony"
-            android:orientation="horizontal"
-            app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/textViewTestimony" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvTestimony"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </ScrollView>

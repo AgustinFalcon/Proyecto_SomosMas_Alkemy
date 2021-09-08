@@ -1,12 +1,15 @@
 package com.somosmas.somosmas
 
 import android.content.Context
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Toast
 import androidx.core.widget.addTextChangedListener
 import androidx.lifecycle.ViewModelProvider
 import com.somosmas.somosmas.databinding.ActivitySingUpBinding
+import com.somosmas.somosmas.home.HomeActivity
+import com.somosmas.somosmas.home.ui.home.HomeFragment
 import com.somosmas.somosmas.singUpViewModel.*
 
 
@@ -38,6 +41,12 @@ class SingUpActivity : AppCompatActivity() {
 
         binding.txtConfirmPassword.addTextChangedListener {
             singUpViewModel.validateConfirmPassword(binding.txtPassword.text.toString(), binding.txtConfirmPassword.text.toString())
+        }
+
+        //navegacion desde sing up a home
+        binding.btnSingUp.setOnClickListener {
+            val intent = Intent(this,HomeActivity::class.java)
+            startActivity(intent)
         }
     }
 

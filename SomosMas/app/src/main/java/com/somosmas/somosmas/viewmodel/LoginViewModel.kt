@@ -1,17 +1,9 @@
 package com.somosmas.somosmas.viewmodel
 
-import android.util.Log
 import androidx.core.util.PatternsCompat
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.somosmas.somosmas.APIService
-import com.somosmas.somosmas.RetrofitClient
-import com.somosmas.somosmas.SlideResponse
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 class LoginViewModel : ViewModel() {
     private val _viewState = MutableLiveData<ViewStates>()

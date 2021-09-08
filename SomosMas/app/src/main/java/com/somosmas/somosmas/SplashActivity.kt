@@ -16,7 +16,7 @@ class SplashActivity : AppCompatActivity() {
         setTheme(R.style.Theme_SomosMas)
 
         Handler().postDelayed({
-            startActivity(Intent(this, HomeActivity::class.java))
+            startActivity(Intent(this, MainActivity::class.java))
             finish()
         }, SPLASH_TIME)
     }
